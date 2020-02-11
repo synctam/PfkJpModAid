@@ -1,0 +1,42 @@
+[[I]],[[変換区分]],[[接頭辞]],[[英語]],[[省略形]],[[日本語]],[[翻訳候補]],[[カテゴリー]],[[備考]],[[GGL準拠]],[[管理用メモ]]
+S,$,,Seize Advantage,,《後の先取り》,,（戦闘） ,,,
+C,$,,Charisma,Cha,【魅力】,カリスマ,Ability Score,,ok,"BGEE,BG2EEではカタカナ、Pathfinder日本語訳では漢字。"
+C,$,,Constitution,Con,【耐久力】,コンスティテューション,Ability Score,,ok,"BGEE,BG2EEではカタカナ、Pathfinder日本語訳では漢字。"
+D,$,,Dexterity,Dex,【敏捷力】,デクスタリティ,Ability Score,,ok,"BGEE,BG2EEではカタカナ、Pathfinder日本語訳では漢字。"
+I,$,,Intelligence,Int,【知力】,インテリジェンス,Ability Score,,ok,"BGEE,BG2EEではカタカナ、Pathfinder日本語訳では漢字。"
+S,$,,Strength,Str,【筋力】,ストレングス,Ability Score,,ok,"BGEE,BG2EEではカタカナ、Pathfinder日本語訳では漢字。"
+W,$,,Wisdom,Wis,【判断力】,ウィズダム,Ability Score,,ok,"BGEE,BG2EEではカタカナ、Pathfinder日本語訳では漢字。"
+F,$,,Free Action,,フリー・アクション,,Action,,,
+F,$,,full-round action,,全ラウンド・アクション,,Action,,,
+I,$,,Immediate Action,,割り込みアクション,,Action,,,
+M,$,,Minor Action,,マイナー・アクション,,Action,,ok,
+M,$,,Misc Actions,,雑多なアクション,,Action,,,日本語訳不明のため、独自翻訳。
+M,$,,Move Action,,移動アクション,,Action,,,
+O,$,,Other Actions,,その他のアクション,,Action,,,
+S,$,,Skill Actions,,技能アクション,,Action,,,
+S,$,,Standard Action,,標準アクション,,Action,,,
+S,$,,Swift Action,,即行アクション,,Action,,,
+B,$,,Barbarian,,バーバリアン,,Class,,,
+C,$,,Cleric,,クレリック,,Class,,ok,
+F,$,,Fighter,,ファイター,,Class,,,
+R,$,,Rogue,,ローグ,,Class,,,
+A,$,CLF,All-Around Vision,,全周囲視覚,,クラスの特徴(Class Features),,,ローグ
+B,$,CLF,Blood Frenzy,,血の狂乱,,クラスの特徴(Class Features),,,
+C,$,CLF,Crippling Strike,,弱体化打撃,,クラスの特徴(Class Features),,,
+D,$,CLF,Damage Reduction,,ダメージ減少,,クラスの特徴(Class Features),,,バーバリアン
+D,$,CLF,Defensive Roll,,打撃のいなし,,クラスの特徴(Class Features),,,
+E,$,CLF,End Rage,,激怒の終了,,クラスの特徴(Class Features),,,
+E,$,CLF,Evasion,,身かわし,,クラスの特徴(Class Features),,,
+F,$,CLF,Fast Movement,,高速移動,,クラスの特徴(Class Features),,,バーバリアン
+G,$,CLF,Graceful Step,,グレイスフル ステップ,優雅なる歩み,クラスの特徴(Class Features),,,日本語訳不明のため、独自翻訳。
+I,$,CLF,Improved Evasion,,身かわし強化,,クラスの特徴(Class Features),,,
+I,$,CLF,Improved Uncanny Dodge,,直感回避強化,,クラスの特徴(Class Features),,,バーバリアン
+I,$,CLF,Indomitable Will,,不屈の意思,,クラスの特徴(Class Features),,,バーバリアン
+M,$,CLF,Mind-Affecting,,［精神作用］,,クラスの特徴(Class Features),,,
+M,$,CLF,Mobile Tactics,,モバイル タクティクス,,クラスの特徴(Class Features),,,日本語訳不明のため、独自翻訳。ローグ
+O,$,CLF,Opportunist,,追い討ち,,クラスの特徴(Class Features),,,
+R,$,CLF,Rage,,激怒,,クラスの特徴(Class Features),,,バーバリアン
+S,$,CLF,Slippery Mind,,心術破り,,クラスの特徴(Class Features),,,
+S,$,CLF,Swamper,,スワンパー,,クラスの特徴(Class Features),,,ローグ
+T,$,CLF,Tireless Rage,,無疲労激怒,,クラスの特徴(Class Features),,,バーバリアン
+U,$,CLF,Uncanny Dodge,,直感回避,,クラスの特徴(Class Features),,,バーバリアン
