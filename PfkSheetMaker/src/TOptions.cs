@@ -178,7 +178,7 @@ namespace MonoOptions
             this.optionSet = new OptionSet()
             {
                 { "i|in="     , this.args.FileNameLangInputText   ,      v  => this.args.FileNameLangInput = v},
-                { "f|fun="    , this.args.FileNameFunInputText    ,      v  => this.args.FileNameFunInput  = v},
+                { "f|fun="    , this.args.FileNameFunInputText    ,      v  => this.args.FileNameFanInput  = v},
                 { "s|sheet="  , this.args.FileNameSheetText       ,      v  => this.args.FileNameSheet     = v},
                 { "n|number=" , this.args.RowsPerSheetText        , (int v) => this.args.RowsPerSheet      = v},
                 { "t|tag"     , this.args.UseTagText              ,      v  => this.args.UseTag            = v != null},
@@ -275,7 +275,7 @@ namespace MonoOptions
                 //// 有志翻訳の言語ファイルが指定された場合。
                 if (!File.Exists(this.Arges.FileNameLangInput))
                 {
-                    this.SetErrorMessage($@"{Environment.NewLine}エラー：(-f)有志翻訳版の言語ファイルがみつかりません。{Environment.NewLine}({Path.GetFullPath(this.Arges.FileNameFunInput)})");
+                    this.SetErrorMessage($@"{Environment.NewLine}エラー：(-f)有志翻訳版の言語ファイルがみつかりません。{Environment.NewLine}({Path.GetFullPath(this.Arges.FileNameFanInput)})");
                     this.isError = true;
 
                     return true;
@@ -362,7 +362,7 @@ namespace MonoOptions
             public string FileNameLangInputText { get; internal set; } =
                 "オリジナル版の言語ファイルのパスを指定する。";
 
-            public string FileNameFunInput { get; internal set; }
+            public string FileNameFanInput { get; internal set; }
 
             public string FileNameFunInputText { get; internal set; } =
                 $"有志翻訳版の言語ファイルのパス名を指定する。{Environment.NewLine}有志翻訳版がある場合のみ指定する。";

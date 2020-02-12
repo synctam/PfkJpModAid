@@ -63,15 +63,15 @@
             var langInfo = new PfkLanguageInfo();
             PfkLanguageDao.LoadFromFile(langInfo, opt.FileNameLangInput);
 
-            var funInfo = new PfkLanguageInfo();
-            if (!string.IsNullOrWhiteSpace(opt.FileNameLangInput))
+            var fanInfo = new PfkLanguageInfo();
+            if (!string.IsNullOrWhiteSpace(opt.FileNameFanInput))
             {
                 //// 有志翻訳版の言語情報を作成する。
-                PfkLanguageDao.LoadFromFile(funInfo, opt.FileNameFunInput);
+                PfkLanguageDao.LoadFromFile(fanInfo, opt.FileNameFanInput);
             }
 
             PfkTransSheetDao.SaveToExcel(
-                langInfo, funInfo, opt.FileNameSheet, opt.RowsPerSheet, opt.UseTag);
+                langInfo, fanInfo, opt.FileNameSheet, opt.RowsPerSheet, opt.UseTag);
         }
 
         private static void MakeCsv(TOptions.TArgs opt)

@@ -6,7 +6,6 @@ Pathfinder: Kingmaker 日本語化支援ツール
 [「synctam: Pathfinder: Kingmaker 日本語化支援ツールの使い方」](https://synctam.blogspot.com/2020/02/pathfinder-kingmaker.html)
 
 
-
 ## PfkSheetMaker ##
 
 ```
