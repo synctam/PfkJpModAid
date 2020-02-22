@@ -3,9 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// 翻訳シートファイル
@@ -46,28 +43,6 @@
             else
             {
                 this.Items.Add(entry.Key, entry);
-            }
-        }
-
-        /// <summary>
-        /// 翻訳結果を返す。
-        /// </summary>
-        /// <param name="originalText">原文</param>
-        /// <param name="key">キー</param>
-        /// <param name="useMT">機械翻訳の有無</param>
-        /// <param name="mtMark">機械翻訳の印</param>
-        /// <returns>翻訳結果</returns>
-        public string Translate(string originalText, Guid key, bool useMT, string mtMark)
-        {
-            if (this.Items.ContainsKey(key))
-            {
-                var entry = this.Items[key];
-                var translatedText = entry.Translate(originalText, useMT, mtMark);
-                return translatedText;
-            }
-            else
-            {
-                return originalText;
             }
         }
 
