@@ -127,7 +127,7 @@ namespace MonoOptions
             msg.WriteLine(string.Empty);
             msg.WriteLine($@"使い方：");
             msg.WriteLine($@"JSON形式の言語ファイルから翻訳シートを作成する。");
-            msg.WriteLine($@"  usage: {exeName} -i <lang file path> [-f <fun lang file path>] -s <trans sheet path> [-n <number>] [-r]");
+            msg.WriteLine($@"  usage: {exeName} -i <lang file path> [-f <fun lang file path>] -s <trans sheet path> [-u <umm csv path>] [-n <number>] [-t] [-r] [-h]");
             msg.WriteLine($@"OPTIONS:");
             this.optionSet.WriteOptionDescriptions(msg);
             msg.WriteLine($@"Example:");
@@ -180,6 +180,7 @@ namespace MonoOptions
                 { "i|in="     , this.args.FileNameLangInputText   ,      v  => this.args.FileNameLangInput = v},
                 { "f|fun="    , this.args.FileNameFunInputText    ,      v  => this.args.FileNameFanInput  = v},
                 { "s|sheet="  , this.args.FileNameSheetText       ,      v  => this.args.FileNameSheet     = v},
+                { "u|umm="    , this.args.FileNameUmmText         ,      v  => this.args.FileNameUmm       = v},
                 { "n|number=" , this.args.RowsPerSheetText        , (int v) => this.args.RowsPerSheet      = v},
                 { "t|tag"     , this.args.UseTagText              ,      v  => this.args.UseTag            = v != null},
                 { "r"         , this.args.UseReplaceText          ,      v  => this.args.UseReplace        = v != null},
@@ -237,6 +238,11 @@ namespace MonoOptions
             }
 
             if (this.IsErrorRowsPerSheet())
+            {
+                return;
+            }
+
+            if (this.IsErrorUmmSheetFile())
             {
                 return;
             }
@@ -344,6 +350,22 @@ namespace MonoOptions
             return false;
         }
 
+        private bool IsErrorUmmSheetFile()
+        {
+            if (!string.IsNullOrWhiteSpace(this.args.FileNameUmm) && !File.Exists(this.args.FileNameUmm))
+            {
+                this.SetErrorMessage(
+                    $"{Environment.NewLine}" +
+                    $@"エラー：(-u)UMM対応版CSVファイルが見つかりません。{Environment.NewLine}" +
+                    $@"({Path.GetFullPath(this.args.FileNameUmm)}){Environment.NewLine}");
+                this.isError = true;
+
+                return true;
+            }
+
+            return false;
+        }
+
         private void SetErrorMessage(string errorMessage = null)
         {
             if (errorMessage != null)
@@ -381,6 +403,11 @@ namespace MonoOptions
 
             public string RowsPerSheetText { get; internal set; } =
                 $"シートを分割する場合はシートあたりの行数を指定する。{Environment.NewLine}指定可能な行数は5,000以上。{Environment.NewLine}省略時はシート分割は行わない。";
+
+            public string FileNameUmm { get; internal set; }
+
+            public string FileNameUmmText { get; internal set; } =
+                $"UMM対応版CSVファイルのパスを指定する。{Environment.NewLine}UMM対応版CSVファイルの訳を機械翻訳として取り込む場合に指定する。";
 
             public bool UseTag { get; internal set; }
 

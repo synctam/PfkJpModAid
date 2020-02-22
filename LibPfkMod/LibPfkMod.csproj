@@ -103,6 +103,9 @@
     <Compile Include="TransSheet\PfkTransSheetEntry.cs" />
     <Compile Include="TransSheet\PfkTransSheetFile.cs" />
     <Compile Include="TransSheet\PfkTransSheetInfo.cs" />
+    <Compile Include="Umm\PfkUmmDataDao.cs" />
+    <Compile Include="Umm\PfkUmmDataEntry.cs" />
+    <Compile Include="Umm\PfkUmmDataInfo.cs" />
     <Compile Include="Utils\PfkHashTools.cs" />
   </ItemGroup>
   <ItemGroup />

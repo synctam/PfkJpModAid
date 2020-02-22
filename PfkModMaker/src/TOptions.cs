@@ -126,7 +126,7 @@ namespace MonoOptions
             msg.WriteLine($@"日本語化MODを作成する。");
             msg.WriteLine(
                 $@"  usage: {exeName} -i <original lang file path> -o <japanized lang folder path>" +
-                $@" -s <Trans Sheet or folder path> [-g <glossary path>] [-m] [-e] [-k <value>] [-r]");
+                $@" -s <Trans Sheet or folder path> [-g <glossary path>] [-k <value>] [-e] [-u] [-m] [-f] [-r] [-h]");
             msg.WriteLine($@"OPTIONS:");
             this.optionSet.WriteOptionDescriptions(msg);
             msg.WriteLine($@"Example:");
@@ -186,6 +186,7 @@ namespace MonoOptions
                 { "e|refid"    , this.args.UseReferenceIdText  , v => this.args.UseReferenceId   = v != null},
                 { "u|umm"      , this.args.UseUnityModManText  , v => this.args.UseUnityModMan   = v != null},
                 { "m"          , this.args.UseMachineTransText , v => this.args.UseMachineTrans  = v != null},
+                { "f|forcemt"  , this.args.UseForceMtText      , v => this.args.UseForceMt       = v != null},
                 { "r"          , this.args.UseReplaceText      , v => this.args.UseReplace       = v != null},
                 { "h|help"     , "ヘルプ"                      , v => this.args.Help             = v != null},
             };
@@ -418,6 +419,11 @@ namespace MonoOptions
 
             public string UseUnityModManText { get; internal set; } =
                 $"Unity mod manager版CSVファイルを出力する。";
+
+            public bool UseForceMt { get; internal set; }
+
+            public string UseForceMtText { get; internal set; } =
+                $"機械翻訳使用時、置換文字などの特殊文字列を含む場合でも機械翻訳を使用する。";
 
             public bool UseReplace { get; internal set; }
 

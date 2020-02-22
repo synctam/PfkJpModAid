@@ -10,12 +10,14 @@ Pathfinder: Kingmaker 日本語化支援ツール
 
 ```
 JSON形式の言語ファイルから翻訳シートを作成する。
-  usage: PfkSheetMaker.exe -i <lang file path> [-f <fun lang file path>] -s <trans sheet path> [-n <number>] [-r]
+  usage: PfkSheetMaker.exe -i <lang file path> [-f <fun lang file path>] -s <trans sheet path> [-u <umm csv path>] [-n <number>] [-t] [-r] [-h]
 OPTIONS:
   -i, --in=VALUE             オリジナル版の言語ファイルのパスを指定する。
   -f, --fun=VALUE            有志翻訳版の言語ファイルのパス名を指定する。
                                有志翻訳版がある場合のみ指定する。
   -s, --sheet=VALUE          CSV形式またはExcel形式(.xlsx)の翻訳シートのパス名。
+  -u, --umm=VALUE            UMM対応版CSVファイルのパスを指定する。
+                               UMM対応版CSVファイルの訳を機械翻訳として取り込む場合に指定する。
   -n, --number=VALUE         シートを分割する場合はシートあたりの行数を指定する。
                                指定可能な行数は5,000以上。
                                省略時はシート分割は行わない。
@@ -37,7 +39,7 @@ Example:
 
 ```
 日本語化MODを作成する。
-  usage: PfkModMaker.exe -i <original lang file path> -o <japanized lang folder path> -s <Trans Sheet or folder path> [-g <glossary path>] [-m] [-e] [-k <value>] [-r]
+  usage: PfkModMaker.exe -i <original lang file path> -o <japanized lang folder path> -s <Trans Sheet or folder path> [-g <glossary path>] [-k <value>] [-e] [-u] [-m] [-f] [-r] [-h]
 OPTIONS:
   -i, --in=VALUE             オリジナル版の言語ファイルのパスを指定する。
   -o, --out=VALUE            日本語化された言語ファイルのパスを指定する。
@@ -51,6 +53,7 @@ OPTIONS:
                                省略時はReferenceIDを付加しない。
   -u, --umm                  Unity mod manager版CSVファイルを出力する。
   -m                         有志翻訳がない場合は機械翻訳を使用する。
+  -f, --forcemt              機械翻訳使用時、置換文字などの特殊文字列を含む場合でも機械翻訳を使用する。
   -r                         日本語化された言語ファイルが既に存在する場合はを上書きする。
   -h, --help                 ヘルプ
 Example:

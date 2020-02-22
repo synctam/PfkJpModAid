@@ -1,13 +1,10 @@
 ﻿namespace PfkModMaker
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using LibPfk.Glossary;
     using LibPfkMod.Language;
     using LibPfkMod.TransSheet;
+    using LibPfkMod.Umm;
     using MonoOptions;
     using S5mDebugTools;
 
@@ -70,15 +67,16 @@
 
             if (opt.UseUnityModMan)
             {
-                //// 翻訳済みJSONファイルを出力する（タグは制御文字に変換する）。
-                PfkLanguageDao.SaveToUmmFile(
+                //// UMM形式のCSVファイルを出力する（タグは制御文字に変換する）。
+                PfkUmmDataDao.SaveToUmmFile(
                     opt.FileNameInput,
                     sheetInfo,
                     glossaryInfo,
                     opt.FileNameOutput,
                     opt.UseReferenceId,
                     opt.UseMachineTrans,
-                    opt.MtransMark);
+                    opt.MtransMark,
+                    opt.UseForceMt);
             }
             else
             {
@@ -90,7 +88,8 @@
                     opt.FileNameOutput,
                     opt.UseReferenceId,
                     opt.UseMachineTrans,
-                    opt.MtransMark);
+                    opt.MtransMark,
+                    opt.UseForceMt);
             }
         }
     }

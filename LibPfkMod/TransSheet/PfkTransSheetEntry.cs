@@ -1,10 +1,7 @@
 ﻿namespace LibPfkMod.TransSheet
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// 翻訳シートエントリー
@@ -112,8 +109,9 @@
         /// <param name="originalText">原文</param>
         /// <param name="useMT">機械翻訳の有無</param>
         /// <param name="mtMark">機械翻訳の印</param>
+        /// <param name="forceMT">置換文字などの特殊文字列を含む場合でも機械翻訳を適用する</param>
         /// <returns>翻訳済みのテキスト</returns>
-        public string Translate(string originalText, bool useMT, string mtMark)
+        public string Translate(string originalText, bool useMT, string mtMark, bool forceMT)
         {
             //// en | jp | mt | result
             ////  o |  o |  o | jp

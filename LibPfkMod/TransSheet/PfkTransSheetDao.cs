@@ -4,12 +4,11 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
-    using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
     using ClosedXML.Excel;
     using CsvHelper;
     using LibPfkMod.Language;
+    using LibPfkMod.Umm;
     using PfkHashUtils;
     using S5mCommon_1F1F6148_9E9B_4F66_AEB6_EB749A40E94E;
 
@@ -102,7 +101,12 @@
         }
 
         public static void SaveToExcel(
-            PfkLanguageInfo langInfo, PfkLanguageInfo funInfo, string path, int maxRowCount, bool useTag)
+            PfkLanguageInfo langInfo,
+            PfkLanguageInfo funInfo,
+            PfkUmmDataInfo ummDataInfo,
+            string path,
+            int maxRowCount,
+            bool useTag)
         {
             using (var workbook = new XLWorkbook())
             {
@@ -145,6 +149,7 @@
                         // 出力
                         var data = new PfkTransSheetEntry();
 
+                        data.Key = langEntry.Key;
                         data.English = langEntry.Text;
 
                         //// 有志翻訳版が指定された場合は、有志翻訳のデータを反映する。
@@ -169,7 +174,18 @@
                         data.English = PfkTransSheetEntry.GetEscapedTab(data.English);
                         data.Japanese = PfkTransSheetEntry.GetEscapedTab(data.Japanese);
 
-                        data.Key = langEntry.Key;
+                        //// UMMデータの取得
+                        var ummDataEntry = ummDataInfo.GetEntry(data.Key);
+                        if (ummDataEntry == null)
+                        {
+                            data.MachineTranslation = string.Empty;
+                        }
+                        else
+                        {
+                            //// UMMデータがある場合は機械翻訳として取り込む。
+                            data.MachineTranslation = PfkTransSheetEntry.GetEscapedTab(ummDataEntry.Value);
+                        }
+
                         //// リファレンスIDを算出する。
                         data.ReferenceID = PfkHashTools.ComputeHashX(langEntry.Key.ToString());
                         data.Sequence = sequenceNo;

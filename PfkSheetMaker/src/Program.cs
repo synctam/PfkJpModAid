@@ -1,13 +1,10 @@
 ﻿namespace PfkSheetMaker
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using LibPfkMod.Language;
     using LibPfkMod.TransSheet;
+    using LibPfkMod.Umm;
     using MonoOptions;
     using S5mDebugTools;
 
@@ -70,8 +67,15 @@
                 PfkLanguageDao.LoadFromFile(fanInfo, opt.FileNameFanInput);
             }
 
+            //// UMM対応版データを読み込む。
+            var ummDataInfo = new PfkUmmDataInfo();
+            if (!string.IsNullOrEmpty(opt.FileNameUmm))
+            {
+                PfkUmmDataDao.LoadFromCsv(ummDataInfo, opt.FileNameUmm);
+            }
+
             PfkTransSheetDao.SaveToExcel(
-                langInfo, fanInfo, opt.FileNameSheet, opt.RowsPerSheet, opt.UseTag);
+                langInfo, fanInfo, ummDataInfo, opt.FileNameSheet, opt.RowsPerSheet, opt.UseTag);
         }
 
         private static void MakeCsv(TOptions.TArgs opt)
